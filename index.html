@@ -9,6 +9,7 @@
 			window.require = function() { return window.React; };
 			window.module = {};
 		</script>
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
 		<link href="styles.css" rel="stylesheet"/>
 		<style>
 			.custom-header {
@@ -32,6 +33,7 @@
 					super(props);
 					this.state = {
 						stickyText: 'I dunno',
+						threshold: 0,
 
 						// Sticky style (2/2)
 						partialStyle: {
@@ -46,16 +48,30 @@
 					this.setState({stickyText: isStuck ? 'Yep!' : 'Nope!'});
 				}
 
+				handleThresholdChange(event) {
+					this.setState({threshold: event.target.value});
+				}
+
 				render() {
 					return (
 						<div>
+							<div className="jumbotron">
+								<h1>Sticky Header Demo</h1>
+							</div>
 							<Sticky stickyClass="supersticky"
-							  className="custom-header"
+								className="custom-header"
 								stickyStyle={this.state.partialStyle}
 								type={React.DOM.header}
+								threshold={this.state.threshold}
 								onStickyStateChange={this.handleStickyStateChange.bind(this)}>
 
-								<nav>Am I Stuck? {this.state.stickyText}</nav>
+								<nav>
+									<strong className="pull-left">Am I Stuck? {this.state.stickyText}</strong>
+									<form className="form-inline pull-right">
+										<label>Threshold:&nbsp;&nbsp;</label>
+										<input className="form-control" type="number" value={this.state.threshold} onChange={this.handleThresholdChange.bind(this)} />
+									</form>
+								</nav>
 							</Sticky>
 							<main>
 								Main content
