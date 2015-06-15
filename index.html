@@ -33,7 +33,7 @@
 					super(props);
 					this.state = {
 						stickyText: 'I dunno',
-						threshold: 0,
+						topOffset: 0,
 
 						// Sticky style (2/2)
 						partialStyle: {
@@ -48,8 +48,8 @@
 					this.setState({stickyText: isStuck ? 'Yep!' : 'Nope!'});
 				}
 
-				handleThresholdChange(event) {
-					this.setState({threshold: event.target.value});
+				handleOffsetChange(event) {
+					this.setState({ topOffset: event.target.value });
 				}
 
 				render() {
@@ -62,14 +62,13 @@
 								className="custom-header"
 								stickyStyle={this.state.partialStyle}
 								type={React.DOM.header}
-								threshold={this.state.threshold}
+								topOffset={this.state.topOffset}
 								onStickyStateChange={this.handleStickyStateChange.bind(this)}>
-
 								<nav>
 									<strong className="pull-left">Am I Stuck? {this.state.stickyText}</strong>
 									<form className="form-inline pull-right">
-										<label>Threshold:&nbsp;&nbsp;</label>
-										<input className="form-control" type="number" value={this.state.threshold} onChange={this.handleThresholdChange.bind(this)} />
+										<label>Top Offset:&nbsp;&nbsp;</label>
+										<input className="form-control" type="number" value={this.state.topOffset} onChange={this.handleOffsetChange.bind(this)} />
 									</form>
 								</nav>
 							</Sticky>
