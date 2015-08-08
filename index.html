@@ -13,6 +13,7 @@
 		window.module = {};
 	</script>
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+	<link href="http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext" rel="stylesheet" type="text/css">
 	<link href="styles.css" rel="stylesheet" />
 	<style>
 		.custom-header {
@@ -43,7 +44,7 @@
 					partialStyle: {
 						left: 0,
 						right: 0,
-						background: 'orange'
+						backgroundColor: 'white'
 					}
 				};
 			}
@@ -62,9 +63,9 @@
 			render() { return (
 				<div>
 					<div className="jumbotron">
-						<h1>Sticky Header Demo</h1>
+						<h1>Sticky Header Demo <small>by <a href="http://www.captivationsoftware.com"><strong>Captivation Software</strong></a></small></h1>
 					</div>
-					<Sticky stickyClass="supersticky" className="custom-header" stickyStyle={this.state.partialStyle} type={React.DOM.header} topOffset={this.state.topOffset} onStickyStateChange={this.handleStickyStateChange.bind(this)}>
+					<Sticky stickyClass="supersticky" className="custom-header" style={this.state.partialStyle} stickyStyle={{backgroundColor: 'orange'}} type={React.DOM.header} topOffset={this.state.topOffset} onStickyStateChange={this.handleStickyStateChange.bind(this)}>
 						<nav>
 							<strong className="pull-left">Am I Stuck? {this.state.stickyText}</strong>
 							<form className="form-inline pull-right">
