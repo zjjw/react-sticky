@@ -2,6 +2,7 @@
 <html>
 
 <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title><Sticky /> Example</title>
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/babel/5.1.10/browser.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.1/react.min.js"></script>
@@ -15,18 +16,6 @@
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
 	<link href="http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext" rel="stylesheet" type="text/css">
 	<link href="styles.css" rel="stylesheet" />
-	<style>
-		.custom-header {
-			margin-top: 0px;
-			opacity: 0.8;
-		}
-
-		/* Sticky style (1/2) */
-		.supersticky {
-			position: fixed;
-			top: 0
-		}
-	</style>
 </head>
 
 <body>
@@ -38,7 +27,7 @@
 				super(props);
 				this.state = {
 					stickyText: 'I dunno',
-					topOffset: 0,
+					topOffset: -30,
 
 					// Sticky style (2/2)
 					partialStyle: {
@@ -62,10 +51,13 @@
 
 			render() { return (
 				<div>
+					<Sticky style={{ background: '#ddd', height: 30}}>
+						<p>Proudly supported by <a href="http://www.captivationsoftware.com" title="Captivation Software" target="_blank">Captivation Software</a></p>
+					</Sticky>
 					<div className="jumbotron">
-						<h1>Sticky Header Demo <small>by <a href="http://www.captivationsoftware.com"><strong>Captivation Software</strong></a></small></h1>
+						<h1>react-sticky <small>Demo</small></h1>
 					</div>
-					<Sticky stickyClass="supersticky" className="custom-header" style={this.state.partialStyle} stickyStyle={{backgroundColor: 'orange'}} type={React.DOM.header} topOffset={this.state.topOffset} onStickyStateChange={this.handleStickyStateChange.bind(this)}>
+					<Sticky type={React.DOM.header} stickyStyle={{}} topOffset={this.state.topOffset} onStickyStateChange={this.handleStickyStateChange.bind(this)}>
 						<nav>
 							<strong className="pull-left">Am I Stuck? {this.state.stickyText}</strong>
 							<form className="form-inline pull-right">
@@ -75,10 +67,10 @@
 						</nav>
 					</Sticky>
 					<main>
-						Main content
+						Content
 					</main>
 					<footer>
-						Footer content
+						Footer
 					</footer>
 				</div>
 				);
