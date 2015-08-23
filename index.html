@@ -43,12 +43,6 @@
 					stickyText:	isStuck ? 'Yep!' : 'Nope!'});
 			}
 
-			handleOffsetChange(event) {
-				this.setState({
-					topOffset: event.target.value
-				});
-			}
-
 			render() { return (
 				<div>
 					<Sticky style={{ background: '#ddd', height: 30}}>
@@ -60,10 +54,6 @@
 					<Sticky type={React.DOM.header} stickyStyle={{}} topOffset={this.state.topOffset} onStickyStateChange={this.handleStickyStateChange.bind(this)}>
 						<nav>
 							<strong className="pull-left">Am I Stuck? {this.state.stickyText}</strong>
-							<form className="form-inline pull-right">
-								<label>Top Offset:&nbsp;&nbsp;</label>
-								<input className="form-control" type="number" value={this.state.topOffset} onChange={this.handleOffsetChange.bind(this)} />
-							</form>
 						</nav>
 					</Sticky>
 					<main>
