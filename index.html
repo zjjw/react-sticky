@@ -38,8 +38,7 @@
 			}
 
 			handleStickyStateChange(isStuck) {
-				this.setState({
-					stickyText:	isStuck ? 'Yep!' : 'Nope!'});
+				console.log('Am I stuck?', isStuck ? 'Yep!' : 'Nope!');
 			}
 
 			render() { return (
@@ -51,9 +50,7 @@
 						<h1>react-sticky <small>Demo</small></h1>
 					</div>
 					<Sticky type={React.DOM.header} stickyStyle={{}} topOffset={this.state.topOffset} onStickyStateChange={this.handleStickyStateChange.bind(this)}>
-						<nav>
-							<strong className="pull-left">Am I Stuck? {this.state.stickyText}</strong>
-						</nav>
+						Surprise!
 					</Sticky>
 					<main>
 						Content
