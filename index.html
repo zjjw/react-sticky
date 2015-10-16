@@ -4,7 +4,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title><Sticky /> Example</title>
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/babel/5.1.10/browser.js"></script>
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.1/react.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.0/react.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.0/react-dom.min.js"></script>
 	<script type="text/javascript">
 		// Manually bundling so override require and module
 		window.require = function() {
@@ -63,7 +64,7 @@
 			}
 		}
 
-		React.render(<Example />, document.getElementById('example'));
+		ReactDOM.render(<Example />, document.getElementById('example'));
 	</script>
 </body>
 
